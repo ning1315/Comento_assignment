@@ -1,0 +1,21 @@
+.Header-Container {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 1920px;
+  height: 70px;
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 1px 5px #00000012;
+  opacity: 1;
+  margin-bottom: 50px;
+}
+
+.assignMent-info {
+  position: relative;
+  top: 23px;
+  left: 390px;
+  width: 217px;
+  height: 24px;
+  font: normal normal normal 16px/25px Noto Sans CJK KR;
+}
