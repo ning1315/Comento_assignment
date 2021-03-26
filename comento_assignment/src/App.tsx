@@ -5,6 +5,8 @@ import MainPage from './pages/MainPage';
 import './style/Mainpage.scss';
 import './style/Header.scss';
 import './style/MainPageBody.scss';
+import './style/MainPageContents.scss';
+import './style/MainPageAd.scss';
 
 const App: React.FC = () => {
   return (
