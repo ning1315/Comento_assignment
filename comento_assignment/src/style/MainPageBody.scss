@@ -1,8 +1,7 @@
 .MainPageBody-Container {
-  width: 100%;
+  width: 1140px;
   height: 100%;
-  padding-left: 390px;
-  padding-right: 390px;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
 }
@@ -14,12 +13,8 @@
 }
 
 .leftArea-LoginBtn {
-  position: fixed;
-  top: 120px;
-  left: 390px;
   width: 235px;
   height: 60px;
-
   background: var(--unnamed-color-00c854) 0% 0% no-repeat padding-box;
   background: #00C854 0% 0% no-repeat padding-box;
   border-radius: 5px;
