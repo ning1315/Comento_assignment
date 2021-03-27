@@ -5,7 +5,7 @@ const MainPageContents = ({ content }: any) => {
         <div className="MainPageOneContents">
           <div className="MainPageOneContents-Top">
             <div className="MainPageOneContents-Cate">category_name</div>
-            <div className="MainPageOneContents-Id"></div>
+            <div className="MainPageOneContents-Id">{content.id}</div>
           </div>
           <div className="MainPageOneContents-UnderBar"></div>
           <div className="MainPageOneContents-Info">

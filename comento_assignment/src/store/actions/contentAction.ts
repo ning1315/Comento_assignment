@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { ContentType } from '../../module/contents/contentType';
 import { AdType } from '../../module/contents/adType'
 import {CONTENTS_WORKER_START , GET_ASC_CONTENTS, GET_DESC_CONTENTS, GET_AD_CONTENTS, AD_WORKER_START } from './constants';

@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import { contentsReducer } from './contentsReducer'
+import { pageReducer } from './pageReducer'
 
 const rootReducer = combineReducers({
-  contentsStatus : contentsReducer
+  contentsStatus : contentsReducer,
+  pageStatus : pageReducer
 })
 
 export default rootReducer
