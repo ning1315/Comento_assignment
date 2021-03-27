@@ -1,28 +1,21 @@
-const MainPageBodyAd = () => {
+const MainPageBodyAd = ({ ad }: any) => {
   return (
     <>
-      <div className="MainPageOneAd">
-        <div className="MainPageOneAd-Top">sponsored</div>
-        <div className="MainPageOneAd-Middle">
-          <img className="MainPageOneAd-Middle-Img"></img>
-          <div className="MainPageOneAd-Middle-TextBox">
-            <p className="MainPageOneAd-Middle-TextBox-Title">
-              asdasdadassasdasdadassasdasdadassasdasdadassasdasdadassasdasda
-              dassasdasdadassa sdasdadassasdasdadassasdasdadass
-            </p>
-            <p className="MainPageOneAd-Middle-TextBox-Desc">
-              asdasdadassasdasdadassasdasdadassasdasdadassasdasdadassasdasda
-              dassasdasdadassa
-              sdasdadassasdasdadassasdasdadassasdasdadassasdasdadassasdasdadassasdasdadassasdasdadassasdasda
-              dassasdasdadassa
-              sdasdadassasdasdadassasdasdadassasdasdadassasdasdadassasdasdadassasdasdadassasdasdadassasdasda
-              dassasdasdadassa
-              sdasdadassasdasdadassasdasdadassasdasdadassasdasdadassasdasdadassasdasdadassasdasdadassasdasda
-              dassasdasdadassa sdasdadassasdasdadassasdasdadasss
-            </p>
+      {ad && (
+        <div className="MainPageOneAd">
+          <div className="MainPageOneAd-Top">sponsored</div>
+          <div className="MainPageOneAd-Middle">
+            <img
+              className="MainPageOneAd-Middle-Img"
+              src={`https://cdn.comento.kr/assignment/${ad.img}`}
+            ></img>
+            <div className="MainPageOneAd-Middle-TextBox">
+              <p className="MainPageOneAd-Middle-TextBox-Title">{ad.title}</p>
+              <p className="MainPageOneAd-Middle-TextBox-Desc">{ad.contents}</p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
