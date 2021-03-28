@@ -1,12 +1,13 @@
-import { PAGE_INCREMENT, TO_ASC_MODE, TO_DESC_MODE } from '../actions/constants'
+import { PAGE_INCREMENT, TO_ASC_MODE, TO_DESC_MODE, GET_ALL_CATEGORY } from '../actions/constants'
 import { PageAction } from '../actions/pageAction'
 
 const initialState = {
   ascOrDesc : 'asc',
-  pageNow : 1
+  pageNow : 1,
+  allCategory : []
 }
 
-export const pageReducer = (state = initialState, action : PageAction) => {
+export const pageReducer = (state = initialState, action : any) => {
   switch (action.type){
     case PAGE_INCREMENT : 
       return {
@@ -22,6 +23,11 @@ export const pageReducer = (state = initialState, action : PageAction) => {
       return {
         ...state,
         ascOrDesc : 'desc'
+      }
+    case GET_ALL_CATEGORY :
+      return {
+        ...state,
+        allCategory : action.category
       }
     default:
       return state

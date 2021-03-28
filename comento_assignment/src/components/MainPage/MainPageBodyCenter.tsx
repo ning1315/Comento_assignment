@@ -4,6 +4,7 @@ import {
   ContentsWorkerStart,
   AdContentsWorkerStart,
 } from '../../store/actions/contentAction';
+import { categoryWorkerStart } from '../../store/actions/pageAction';
 import { pageIncrement } from '../../store/actions/pageAction';
 import { RootState } from '../../store/reducer';
 import MainPageController from './MainPageController';
@@ -13,24 +14,17 @@ import { useScrollEnd } from '../../util/useScrollEnd';
 
 const MainPageBodyCenter = () => {
   const dispatch = useDispatch();
-  const isEnd = useScrollEnd();
+  const { isEnd, pageNum } = useScrollEnd();
   const pageNow = useSelector((state: RootState) => state.pageStatus.pageNow);
 
   const [isBottom, setIsBottom] = useState<boolean>(false);
-  const [page, setPage] = useState<number>(1);
-
-  if (isEnd) {
-    // setPage(page + 1);
-    console.log('hi');
-    dispatch(pageIncrement());
-    console.log(pageNow);
-  }
+  const [page, setPage] = useState<number>(pageNum);
 
   useEffect(() => {
     dispatch(AdContentsWorkerStart());
     dispatch(ContentsWorkerStart('asc'));
-    console.log(isBottom);
-  }, [isBottom]);
+    dispatch(categoryWorkerStart());
+  }, []);
 
   const contentsNow =
     useSelector((state: RootState) => state.contentsStatus.contentsNow) || [];

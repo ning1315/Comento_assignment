@@ -10,7 +10,6 @@ interface ActionType {
 }
 
 function* workerGetAscContents(action : ActionType){
-  console.log(action.mode)
   let data : Array<ContentType> = []
   yield axios.get(`https://problem.comento.kr/api/list?page=1&ord=${action.mode}&category[]=1&category[]=2&category[]=3&limit=10`)
   .then((res) => {
