@@ -14,6 +14,7 @@ import { useScrollEnd } from '../../util/useScrollEnd';
 const MainPageBodyCenter = () => {
   const dispatch = useDispatch();
   const isEnd = useScrollEnd();
+  const pageNow = useSelector((state: RootState) => state.pageStatus.pageNow);
 
   const [isBottom, setIsBottom] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
@@ -22,11 +23,12 @@ const MainPageBodyCenter = () => {
     // setPage(page + 1);
     console.log('hi');
     dispatch(pageIncrement());
+    console.log(pageNow);
   }
 
   useEffect(() => {
     dispatch(AdContentsWorkerStart());
-    dispatch(ContentsWorkerStart());
+    dispatch(ContentsWorkerStart('asc'));
     console.log(isBottom);
   }, [isBottom]);
 

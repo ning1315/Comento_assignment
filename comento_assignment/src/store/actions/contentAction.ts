@@ -2,9 +2,10 @@ import { ContentType } from '../../module/contents/contentType';
 import { AdType } from '../../module/contents/adType'
 import {CONTENTS_WORKER_START , GET_ASC_CONTENTS, GET_DESC_CONTENTS, GET_AD_CONTENTS, AD_WORKER_START } from './constants';
 
-export const ContentsWorkerStart = () => {
+export const ContentsWorkerStart = (mode : string) => {
   return {
-    type : CONTENTS_WORKER_START
+    type : CONTENTS_WORKER_START,
+    mode
   }
 }
 

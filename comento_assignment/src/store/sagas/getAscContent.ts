@@ -3,21 +3,19 @@ import { getAscContents } from '../actions/contentAction'
 import { ContentType } from '../../module/contents/contentType';
 import axios from 'axios'
 
-interface bodyType {
-  page : number
-  ord : string
-  category : Array<string>
-  limit: number
+
+interface ActionType {
+  type : string
+  mode : string
 }
 
-
-function* workerGetAscContents(){
+function* workerGetAscContents(action : ActionType){
+  console.log(action.mode)
   let data : Array<ContentType> = []
-  yield axios.get('https://problem.comento.kr/api/list?page=1&ord=asc&category[]=1&category[]=2&category[]=3&limit=10')
+  yield axios.get(`https://problem.comento.kr/api/list?page=1&ord=${action.mode}&category[]=1&category[]=2&category[]=3&limit=10`)
   .then((res) => {
     data = res.data.data
   });
-  console.log(data)
   yield put(getAscContents(data))
 }
 
