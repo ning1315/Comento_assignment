@@ -1,0 +1,47 @@
+@import "./\ _variable.scss";
+
+.ViewContent-Container {
+  width: 1140px;
+  height: auto;
+  background: $mainWhiteColor 0% 0% no-repeat padding-box;
+  border: 1px solid $mainGreenColor;
+  border-radius: 5px;
+  opacity: 1;
+  margin-bottom: 31px;
+  padding: 21px 31px 21px 30px;
+}
+
+.ViewContent-Title {
+  text-align: left;
+  font: normal normal bold 18px/28px SpoqaHanSans;
+  letter-spacing: 0px;
+  color: #282C30;
+  opacity: 1;
+  margin-bottom: 6px;
+}
+
+.ViewContent-Desc {
+  text-align: left;
+  font: normal normal normal 16px/25px SpoqaHanSans;
+  letter-spacing: 0px;
+  color: #495057;
+  opacity: 1;
+  margin-bottom: 15px;
+}
+
+.ViewContent-Date {
+  text-align: left;
+  font: normal normal normal 13px/25px SpoqaHanSans;
+  letter-spacing: 0px;
+  color: #ADB5BD;
+  opacity: 1;
+}
+
+@media (max-width: 768px){
+  .ViewContent-Container {
+    width: 100%;
+    border-left: none;
+    border-right: none;
+    padding: 20px 0 20px 0;
+  }
+}

@@ -1,15 +1,23 @@
 import { takeEvery, put, call, delay } from 'redux-saga/effects';
 import axios from 'axios'
-import { addNextContent } from '../actions/contentAction'
+import { addNextContent, getNextAd } from '../actions/contentAction'
 import { ContentType } from '../../module/contents/contentType';
-
+import { AdType } from '../../module/contents/adType'
+import filterMaker from '../../util/filterMaker'
 
 function* workerAddNextContent(action : any){
-  yield console.log(action)
-  let data : Array<ContentType> = []
-  yield axios.get(`https://problem.comento.kr/api/list?page=${action.pageNum}&ord=${action.modeNow}&category[]=1&category[]=2&category[]=3&limit=10`)
-  .then((res) => data = res.data.data )
-  yield put(addNextContent(data))
+  const pathCate = filterMaker(action.cate)
+  let contentsData : Array<ContentType> = []
+  let adData : Array<AdType> = []
+  yield axios.get(`https://problem.comento.kr/api/list?page=${action.pageNum}&ord=${action.modeNow}${pathCate}&limit=10`)
+  .then((res) => contentsData = res.data.data )
+
+  yield axios.get(`https://problem.comento.kr/api/ads?page=${action.pageNum}&limit=2`)
+  .then((res) => {
+   adData = res.data.data
+  })
+  yield put(addNextContent(contentsData))
+  yield put(getNextAd(adData))
 }
 
 export default workerAddNextContent
