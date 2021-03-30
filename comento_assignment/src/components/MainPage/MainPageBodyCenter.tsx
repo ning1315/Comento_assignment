@@ -5,7 +5,7 @@ import {
   AdContentsWorkerStart,
 } from '../../store/actions/contentAction';
 import { categoryWorkerStart } from '../../store/actions/pageAction';
-import { pageIncrement } from '../../store/actions/pageAction';
+import { pageIncrement, resetPage } from '../../store/actions/pageAction';
 import { RootState } from '../../store/reducer';
 import MainPageController from './MainPageController';
 import MainPageContents from './MainPageContents';
@@ -14,6 +14,7 @@ import { useScrollEnd } from '../../util/useScrollEnd';
 
 const MainPageBodyCenter = () => {
   const dispatch = useDispatch();
+
   const { isEnd, pageNum } = useScrollEnd();
   const pageNow = useSelector((state: RootState) => state.pageStatus.pageNow);
 
@@ -21,8 +22,10 @@ const MainPageBodyCenter = () => {
   const [page, setPage] = useState<number>(pageNum);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+    dispatch(resetPage());
     dispatch(AdContentsWorkerStart());
-    dispatch(ContentsWorkerStart('asc'));
+    dispatch(ContentsWorkerStart('asc', []));
     dispatch(categoryWorkerStart());
   }, []);
 
@@ -40,8 +43,8 @@ const MainPageBodyCenter = () => {
         return (
           <>
             <MainPageContents key={index} content={content} />
-            {index % 3 === 0 && index !== 0 ? (
-              <MainPageBodyAd ad={allAd[index / 3]} />
+            {index % 5 === 0 && index !== 0 ? (
+              <MainPageBodyAd key={index * 100} ad={allAd[index / 5 - 1]} />
             ) : null}
           </>
         );

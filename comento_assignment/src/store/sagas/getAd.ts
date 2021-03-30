@@ -5,7 +5,7 @@ import { AdType } from '../../module/contents/adType'
 
 function* workerGetAd(){
   let data : Array<AdType> = []
-  yield axios.get('https://problem.comento.kr/api/ads?page=1&limit=10')
+  yield axios.get('https://problem.comento.kr/api/ads?page=1&limit=2')
   .then((res) => {
    data = res.data.data
   })
