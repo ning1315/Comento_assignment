@@ -26,7 +26,8 @@
 }
 
 .leftArea-LoginBtn-Text {
-  font: normal normal bold 22px/25px SpoqaHanSans;
+  font-weight: bold;
+  font-size: 22px;
   letter-spacing: 0px;
   color: $mainWhiteColor;
   opacity: 1;
@@ -69,7 +70,7 @@
 
 .Controll-Text-Up-Down {
   text-align: left;
-  font: normal normal normal 13px/25px SpoqaHanSans;
+  font-size: 13px;
   letter-spacing: 0px;
   color: #495057;
   opacity: 1;
@@ -86,7 +87,7 @@
 }
 
 .Controll-Filter-Btn-Text {
-  font: normal normal normal 13px/25px SpoqaHanSans;
+  font-size: 13px;
   letter-spacing: 0px;
   color: #ADB5BD;
   opacity: 1;

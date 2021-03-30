@@ -9,10 +9,10 @@ function* workerAddNextContent(action : any){
   const pathCate = filterMaker(action.cate)
   let contentsData : Array<ContentType> = []
   let adData : Array<AdType> = []
-  yield axios.get(`https://problem.comento.kr/api/list?page=${action.pageNum}&ord=${action.modeNow}${pathCate}&limit=10`)
+  yield axios.get(`https://problem.comento.kr/api/list?page=${action.pageNum}&ord=${action.modeNow}${pathCate}&limit=15`)
   .then((res) => contentsData = res.data.data )
 
-  yield axios.get(`https://problem.comento.kr/api/ads?page=${action.pageNum}&limit=2`)
+  yield axios.get(`https://problem.comento.kr/api/ads?page=${action.pageNum}&limit=3`)
   .then((res) => {
    adData = res.data.data
   })

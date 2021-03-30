@@ -13,25 +13,49 @@
 
 .ViewContent-Title {
   text-align: left;
-  font: normal normal bold 18px/28px SpoqaHanSans;
+  font-weight: bold;
+  font-size: 18px;
   letter-spacing: 0px;
   color: #282C30;
   opacity: 1;
   margin-bottom: 6px;
+  @include noneDrag;
 }
 
 .ViewContent-Desc {
   text-align: left;
-  font: normal normal normal 16px/25px SpoqaHanSans;
+  font-size: 16px;
   letter-spacing: 0px;
   color: #495057;
   opacity: 1;
   margin-bottom: 15px;
+  @include noneDrag;
+}
+
+.ViewContent-Info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ViewContent-Email {
+  font-size: 13px;
+  letter-spacing: 0px;
+  color: #ADB5BD;
+  opacity: 1;
+  margin-right: 10px;
+}
+
+.ViewContent-SideBar {
+  width: 1px;
+  height: 15px;
+  background: #b9bec2 0% 0% no-repeat padding-box;
+  opacity: 1;
+  margin-right: 10px;
 }
 
 .ViewContent-Date {
-  text-align: left;
-  font: normal normal normal 13px/25px SpoqaHanSans;
+  font-size: 13px;
   letter-spacing: 0px;
   color: #ADB5BD;
   opacity: 1;
@@ -42,6 +66,7 @@
     width: 100%;
     border-left: none;
     border-right: none;
+    border-radius: 0;
     padding: 20px 0 20px 0;
   }
 }
