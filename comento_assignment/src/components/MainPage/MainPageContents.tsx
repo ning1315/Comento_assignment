@@ -16,13 +16,15 @@ const MainPageContents = ({ content }: any) => {
 
   return (
     <>
-      {content && (
+      {content.id ? (
         <div
           className="MainPageOneContents"
           onClick={() => onClickContent(content.id)}
         >
           <div className="MainPageOneContents-Top">
-            <div className="MainPageOneContents-Cate">{category[0].name}</div>
+            <div className="MainPageOneContents-Cate">
+              {category.length > 0 ? category[0].name : null}
+            </div>
             <div className="MainPageOneContents-Id">No {content.id}</div>
           </div>
           <div className="MainPageOneContents-UnderBar"></div>
@@ -36,7 +38,7 @@ const MainPageContents = ({ content }: any) => {
           <div className="MainPageOneContents-Title">{content.title}</div>
           <div className="MainPageOneContents-Desc">{content.contents}</div>
         </div>
-      )}
+      ) : null}
     </>
   );
 };

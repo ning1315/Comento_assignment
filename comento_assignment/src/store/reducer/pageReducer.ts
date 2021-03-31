@@ -9,11 +9,13 @@ import {
   CHANGE_TO_PICK,
   CHANGE_TO_UNPICK,
   RESET_PAGE,
-  GET_BEFORE_CATEGORY
+  GET_BEFORE_CATEGORY,
+  LOADING_START,
+  LOADING_STOP
 } from '../actions/constants'
 import { PageAction } from '../actions/pageAction'
 import { categoryType } from '../../module/category/categoryType';
-import { Reducer, Action } from 'redux';
+import { Reducer } from 'redux';
 
 const initialState = {
   ascOrDesc : 'asc' ,
@@ -21,7 +23,8 @@ const initialState = {
   allCategory : [],
   selectedCategory : [],
   filterModal : false,
-  isSelected : {}
+  isSelected : {},
+  isLoading : false
 }
 
 export const pageReducer : Reducer = (state = initialState, action) => {
@@ -100,7 +103,6 @@ export const pageReducer : Reducer = (state = initialState, action) => {
     case CHANGE_TO_UNPICK :
       let deleteCopy : Array<categoryType> = Array.from(state.selectedCategory)
       let filted : Array<categoryType> = deleteCopy.filter((cate : categoryType) => cate.id !== action.pick.id)
-      console.log(filted)
       return {
         ...state,
         selectedCategory : filted
@@ -109,6 +111,16 @@ export const pageReducer : Reducer = (state = initialState, action) => {
       return {
         ...state,
         pageNow : 1
+      }
+    case LOADING_START :
+      return {
+        ...state,
+        isLoading : true
+      }
+    case LOADING_STOP :
+      return {
+        ...state,
+        isLoading : false
       }
     default:
       return state

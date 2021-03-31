@@ -4,6 +4,7 @@ import {
   toAscMode,
   toDescMode,
   filterModalOpen,
+  resetPage,
 } from '../../store/actions/pageAction';
 import { ContentsWorkerStart } from '../../store/actions/contentAction';
 import { RootState } from '../../store/reducer';
@@ -20,10 +21,12 @@ const MainPageController = () => {
   const onClickAscDesc = (e: any) => {
     if (e.target.childNodes[0].data === '오름차순') {
       localStorage.setItem('ascDesc', 'asc');
+      dispatch(resetPage());
       dispatch(toAscMode());
       dispatch(ContentsWorkerStart('asc', selectedCate));
     } else if (e.target.childNodes[0].data === '내림차순') {
       localStorage.setItem('ascDesc', 'desc');
+      dispatch(resetPage());
       dispatch(toDescMode());
       dispatch(ContentsWorkerStart('desc', selectedCate));
     }

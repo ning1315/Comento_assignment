@@ -8,6 +8,7 @@ const MainPageBodyAd = ({ ad }: any) => {
             <img
               className="MainPageOneAd-Middle-Img"
               src={`https://cdn.comento.kr/assignment/${ad.img}`}
+              alt="광고이미지"
             ></img>
             <div className="MainPageOneAd-Middle-TextBox">
               <p className="MainPageOneAd-Middle-TextBox-Title">{ad.title}</p>

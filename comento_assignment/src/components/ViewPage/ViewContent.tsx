@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 const ViewContent = ({ view }: any) => {
   return (
     <>

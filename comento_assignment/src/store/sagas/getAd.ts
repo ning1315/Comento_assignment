@@ -1,4 +1,4 @@
-import { takeEvery, put, call, delay } from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
 import axios from 'axios'
 import { getAdContents } from '../actions/contentAction'
 import { AdType } from '../../module/contents/adType'

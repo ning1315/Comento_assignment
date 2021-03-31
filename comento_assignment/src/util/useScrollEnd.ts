@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { pageIncrement, categoryWorkerStart } from '../store/actions/pageAction';
+import { pageIncrement } from '../store/actions/pageAction';
 import { RootState } from '../store/reducer'
 import { nextContentWorkerStart } from '../store/actions/contentAction'
 export const useScrollEnd = () => {
@@ -29,7 +29,6 @@ export const useScrollEnd = () => {
       dispatch(pageIncrement())
       setPageNum((pageNum) => pageNum + 1)
       setIsEnd(true);
-      console.log(selectedCate)
       dispatch(nextContentWorkerStart(pageNow + 1, modeNow, selectedCate))
     } else {
       setIsEnd(false);
