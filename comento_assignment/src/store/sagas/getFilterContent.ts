@@ -9,7 +9,7 @@ function* workerFilterContent(action : workerFilterType){
   let data : Array<ContentType> = []
   const pathCate = filterMaker(action.picked)
   
-  yield axios.get(`https://problem.comento.kr/api/list?limit=10&page=1&ord=asc${String(pathCate)}`).then((res) => data = res.data.data)
+  yield axios.get(`https://problem.comento.kr/api/list?limit=10&page=1&ord=${action.modeNow}${String(pathCate)}`).then((res) => data = res.data.data)
   
   yield put(getFilterContents(data))
 
