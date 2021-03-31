@@ -56,8 +56,6 @@
   margin-bottom: 11px;
   margin-right: 2px;
   @include TwoLineOver;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .MainPageOneAd-Middle-TextBox-Desc {
@@ -71,8 +69,6 @@
   color: #212529;
   opacity: 1;
   @include FourLineOver;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 @media (max-width: 768px){
