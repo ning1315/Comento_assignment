@@ -18,10 +18,16 @@ $SpoqaFont : 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
   display:-webkit-box;
   -webkit-line-clamp:2;
   -webkit-box-orient:vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: justify;
 }
 
 @mixin FourLineOver {
   display:-webkit-box;
   -webkit-line-clamp:4;
   -webkit-box-orient:vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: justify;
 }
