@@ -1,36 +1,36 @@
-import { takeEvery, put, call, delay } from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
 import { getAscContents } from '../actions/contentAction'
 import { ContentType } from '../../module/contents/contentType';
+import { categoryType } from '../../module/category/categoryType'
+import { workerGetAscType } from '../../module/action/workerGetAscType'
 import axios from 'axios'
 import filterMaker from '../../util/filterMaker'
 
 
-interface ActionType {
-  type : string
-  mode : string
-}
-
-function* workerGetAscContents(action : any){
-  let modeNow = action.mode
-  let cateArr = action.cate
+function* workerGetAscContents(action : workerGetAscType){
+  let modeNow : string = action.mode
+  let cateArr : categoryType[] = action.cate
+  let AllCate : categoryType[] = []
   let data : Array<ContentType> = []
   let beForeAscDesc = localStorage.getItem('ascDesc')
   let beForeCate = localStorage.getItem('Filter')
-  console.log(beForeAscDesc)
   if(beForeAscDesc !== null){
     modeNow = beForeAscDesc
   }
   if(beForeCate !== null){
     cateArr = JSON.parse(beForeCate)
   }
+  yield axios.get('https://problem.comento.kr/api/category').then((res) => AllCate = res.data.category)
+
   const pathCate = filterMaker(cateArr)
   if(cateArr.length === 0){
-    yield axios.get(`https://problem.comento.kr/api/list?page=1&ord=${modeNow}&category[]=1&category[]=2&category[]=3&limit=10`)
+    const pathAllCate = filterMaker(AllCate)
+    yield axios.get(`https://problem.comento.kr/api/list?page=1&ord=${modeNow}${pathAllCate}&limit=15`)
     .then((res) => {
       data = res.data.data
     });
   } else {
-    yield axios.get(`https://problem.comento.kr/api/list?page=1&ord=${modeNow}${pathCate}&limit=10`)
+    yield axios.get(`https://problem.comento.kr/api/list?page=1&ord=${modeNow}${pathCate}&limit=15`)
     .then((res) => {
       data = res.data.data
     });

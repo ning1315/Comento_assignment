@@ -7,7 +7,9 @@ import {
   GET_NEXT_AD,
   GET_VIEW_CONTENT
 } from '../actions/constants'
+import { Reducer } from 'redux';
 import { ContentAction } from '../actions/contentAction'
+import { contentActionType } from '../../module/action/contentActionType'
 
 const initialState = {
   contentsNow : [],
@@ -17,7 +19,7 @@ const initialState = {
 
 
 
-export const contentsReducer = (state = initialState, action : any) => {
+export const contentsReducer : Reducer = (state = initialState, action) => {
   switch(action.type){
     case GET_ASC_CONTENTS : 
       return {
@@ -45,7 +47,6 @@ export const contentsReducer = (state = initialState, action : any) => {
         contentsNow : action.contents
       }
     case GET_VIEW_CONTENT :
-      console.log(action)
       return {
         ...state,
         viewContent : action.view

@@ -1,10 +1,11 @@
-import { takeEvery, put, call, delay, select } from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
 import axios from 'axios'
 import { ContentType } from '../../module/contents/contentType';
+import { workerFilterType } from '../../module/action/workerFilterType'
 import { getFilterContents } from '../actions/contentAction'
 import filterMaker from '../../util/filterMaker'
 
-function* workerFilterContent(action : any){
+function* workerFilterContent(action : workerFilterType){
   let data : Array<ContentType> = []
   const pathCate = filterMaker(action.picked)
   

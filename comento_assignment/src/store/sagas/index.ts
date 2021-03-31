@@ -1,8 +1,6 @@
 import { takeEvery } from 'redux-saga/effects';
 import {
   CONTENTS_WORKER_START,
-  GET_ASC_CONTENTS, 
-  GET_DESC_CONTENTS, 
   AD_WORKER_START, 
   NEXT_CONTENTS_WORKER_START, 
   CATEGORY_WORKER_START, 

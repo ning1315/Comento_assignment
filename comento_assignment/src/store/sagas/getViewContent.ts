@@ -1,12 +1,13 @@
-import { takeEvery, put, call, delay } from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
 import axios from 'axios'
 import { getViewContent } from '../actions/contentAction'
+import { viewType } from '../../module/view/viewType'
+import { workerViewType } from '../../module/action/workerViewType'
 
 
-function* workerViewContent(action : any){
-  let data : any = null
+function* workerViewContent(action : workerViewType){
+  let data : Array<viewType> = []
   yield axios.get(`https://problem.comento.kr/api/view?id=${action.id}`).then((res) => data = res.data.data)
-  console.log(data)
   yield put(getViewContent(data))
 }
 

@@ -15,6 +15,7 @@ import {
   GET_VIEW_CONTENT
 } from './constants';
 import { categoryType } from '../../module/category/categoryType';
+import { viewType } from '../../module/view/viewType'
 
 export const ContentsWorkerStart = (mode : string, cate : Array<categoryType>) => {
   return {
@@ -96,7 +97,7 @@ export const viewContentWorkerStart = (id : number) => {
   }
 }
 
-export const getViewContent = (view : any) => {
+export const getViewContent = (view : Array<viewType>) => {
   return {
     type : GET_VIEW_CONTENT,
     view

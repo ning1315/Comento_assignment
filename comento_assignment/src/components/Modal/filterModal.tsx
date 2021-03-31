@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/reducer';
 import { filterContentWorkerStart } from '../../store/actions/contentAction';
@@ -10,6 +10,7 @@ import {
   resetPage,
 } from '../../store/actions/pageAction';
 import { categoryType } from '../../module/category/categoryType';
+import cancelBtn from '../../svg/그룹 560.svg';
 
 const FilterModal = () => {
   const dispatch = useDispatch();
@@ -38,7 +39,6 @@ const FilterModal = () => {
   };
 
   const savePicked = (category: categoryType, e: any) => {
-    console.log('123123123', category);
     if (e.target.checked) {
       dispatch(changeToPick(category));
     } else if (!e.target.checked) {
@@ -69,6 +69,12 @@ const FilterModal = () => {
             }}
           >
             <div className="contentsFilterModal">
+              <img
+                src={cancelBtn}
+                alt="cancelIMG"
+                className="Cancle-FilterModal"
+                onClick={closeModal}
+              />
               <div className="Title-FilterModal">필터</div>
               {AllCate.map((category: categoryType) => (
                 <div

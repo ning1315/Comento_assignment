@@ -26,7 +26,8 @@
 }
 
 .leftArea-LoginBtn-Text {
-  font: normal normal bold 22px/25px SpoqaHanSans;
+  font-weight: bold;
+  font-size: 22px;
   letter-spacing: 0px;
   color: $mainWhiteColor;
   opacity: 1;
@@ -69,7 +70,7 @@
 
 .Controll-Text-Up-Down {
   text-align: left;
-  font: normal normal normal 13px/25px SpoqaHanSans;
+  font-size: 13px;
   letter-spacing: 0px;
   color: #495057;
   opacity: 1;
@@ -86,10 +87,28 @@
 }
 
 .Controll-Filter-Btn-Text {
-  font: normal normal normal 13px/25px SpoqaHanSans;
+  font-size: 13px;
   letter-spacing: 0px;
   color: #ADB5BD;
   opacity: 1;
+}
+
+.loader {
+  margin: 5% auto;
+  height: 100px;
+  width: 100px;
+  border: 6px solid $mainWhiteColor;
+  border: {
+    right-color: $mainGreenColor;
+    top-color: $mainGreenColor;
+    radius: 100%;
+  }
+  animation: spin 800ms infinite linear;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(359deg); }
 }
 
 @media (max-width: 768px){

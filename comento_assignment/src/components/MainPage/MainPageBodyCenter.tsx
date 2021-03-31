@@ -5,7 +5,7 @@ import {
   AdContentsWorkerStart,
 } from '../../store/actions/contentAction';
 import { categoryWorkerStart } from '../../store/actions/pageAction';
-import { pageIncrement, resetPage } from '../../store/actions/pageAction';
+import { resetPage } from '../../store/actions/pageAction';
 import { RootState } from '../../store/reducer';
 import MainPageController from './MainPageController';
 import MainPageContents from './MainPageContents';
@@ -29,6 +29,10 @@ const MainPageBodyCenter = () => {
     dispatch(categoryWorkerStart());
   }, []);
 
+  const isLoading = useSelector(
+    (state: RootState) => state.pageStatus.isLoading,
+  );
+
   const contentsNow =
     useSelector((state: RootState) => state.contentsStatus.contentsNow) || [];
 
@@ -38,17 +42,19 @@ const MainPageBodyCenter = () => {
   return (
     <div className="MainPageBodyCenter-Container">
       <MainPageController />
-      {contentsNow.map((content: any, index: number) => {
-        index += 1;
-        return (
-          <>
-            <MainPageContents key={index} content={content} />
-            {index % 5 === 0 && index !== 0 ? (
-              <MainPageBodyAd key={index * 100} ad={allAd[index / 5 - 1]} />
-            ) : null}
-          </>
-        );
-      })}
+      {contentsNow &&
+        contentsNow.map((content: any, index: number) => {
+          index += 1;
+          return (
+            <>
+              <MainPageContents key={index} content={content} />
+              {index % 5 === 0 && index !== 0 ? (
+                <MainPageBodyAd key={index * 100} ad={allAd[index / 5 - 1]} />
+              ) : null}
+            </>
+          );
+        })}
+      {isLoading ? <div className="loader"></div> : null}
     </div>
   );
 };

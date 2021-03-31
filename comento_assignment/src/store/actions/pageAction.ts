@@ -10,7 +10,9 @@ import {
   CHANGE_TO_PICK,
   CHANGE_TO_UNPICK,
   RESET_PAGE,
-  GET_BEFORE_CATEGORY
+  GET_BEFORE_CATEGORY,
+  LOADING_START,
+  LOADING_STOP
 } from './constants'
 import { categoryType } from '../../module/category/categoryType'
 
@@ -92,6 +94,18 @@ export const getBeforeCategory = (AllCate : Array<categoryType>, BeforeCate : Ar
   }
 }
 
+export const loadingStart = () => {
+  return {
+    type : LOADING_START
+  }
+}
+
+export const loadingStop = () => {
+  return {
+    type : LOADING_STOP
+  }
+}
+
 export type PageAction = | 
 ReturnType<typeof pageIncrement> |
 ReturnType<typeof toAscMode> |
@@ -104,4 +118,6 @@ ReturnType<typeof pickedFilter> |
 ReturnType<typeof changeToPick> |
 ReturnType<typeof changeToUnPick> |
 ReturnType<typeof resetPage> |
-ReturnType<typeof getBeforeCategory>
+ReturnType<typeof getBeforeCategory> |
+ReturnType<typeof loadingStart> | 
+ReturnType<typeof loadingStop>

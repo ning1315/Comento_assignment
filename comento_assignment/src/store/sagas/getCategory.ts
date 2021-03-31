@@ -1,4 +1,4 @@
-import { takeEvery, put, call, delay } from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
 import axios from 'axios'
 import { categoryType } from '../../module/category/categoryType'
 import { getAllCategory, getBeforeCategory } from '../actions/pageAction'
@@ -8,7 +8,6 @@ function* workerGetCategory(){
   let data : Array<categoryType> = []
   yield axios.get('https://problem.comento.kr/api/category').then((res) => data = res.data.category)
   let beforeCate = localStorage.getItem('Filter')
-  console.log(beforeCate)
   if(beforeCate !== null){
     yield put(getBeforeCategory(data, JSON.parse(beforeCate)))
   } else {
